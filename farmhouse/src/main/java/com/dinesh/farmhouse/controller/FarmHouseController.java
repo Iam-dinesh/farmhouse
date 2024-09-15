@@ -1,26 +1,31 @@
 package com.dinesh.farmhouse.controller;
 
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.dinesh.farmhouse.validator.FarmHouseValidator;
+import com.dinesh.farmhouse.constants.FarmHouseErrorMessages;
+import com.dinesh.farmhouse.helper.FarmHouseResponseHelper;
 import com.dinesh.farmhousecore.domain.FarmHouse;
-import com.dinesh.farmhousecore.domain.Response;
-import com.dinesh.farmhousecore.domain.StatusCode;
+import com.dinesh.farmhousecore.domain.FarmHouseServiceResponse;
+import com.dinesh.farmhousecore.service.FarmHouseService;
 
 @Controller
 public class FarmHouseController {
 
+	@Autowired
+	private FarmHouseService farmHouseService;
+
 	@PostMapping("/createFarmHouse")
-	public Response createFarmHouse(@RequestBody FarmHouse farmhouse) {
+	public FarmHouseServiceResponse createFarmHouse(@RequestBody FarmHouse farmhouse) {
 		try {
-			FarmHouseValidator.validateFarmHouseCreation(farmhouse);
-			return new Response.Builder().withMessage("Farm House Created Successfully")
-					.withStatusCode(StatusCode.SUCCESS).withData(null).build();
+			return farmHouseService.createFarmHouse(farmhouse);
 		} catch (Exception e) {
-			return new Response.Builder().withMessage("Failed to create FarmHouse. Please Try again")
-					.withStatusCode(StatusCode.FAILED).withData(null).build();
+			return FarmHouseResponseHelper.prepareErrorResponse(null,
+					Arrays.asList(FarmHouseErrorMessages.FAILED_TO_CREATE_FARMHOUSE));
 		}
 	}
 }

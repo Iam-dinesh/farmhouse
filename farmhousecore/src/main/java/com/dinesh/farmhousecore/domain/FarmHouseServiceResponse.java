@@ -10,10 +10,8 @@ public class FarmHouseServiceResponse implements Serializable {
 
 	private static final long serialVersionUID = 7931575631889750413L;
 
-	private List<String> message;
+	private List<String> errorMessages;
 	private StatusCode statusCode;
+	private Object data;
 
-	public List<String> getMessage() {
-		return message;
-	}
 }

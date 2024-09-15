@@ -3,9 +3,12 @@ package com.dinesh.farmhouse.helper;
 import java.util.Collection;
 import java.util.Map;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class UtilValidate {
 
-	public static boolean isEmpty(Object obj) {
+	public boolean isEmpty(Object obj) {
 		if (obj == null) {
 			return true;
 		}
@@ -22,7 +25,7 @@ public class UtilValidate {
 		return false;
 	}
 
-	public static boolean isNotEmpty(Object object) {
+	public boolean isNotEmpty(Object object) {
 		return !isEmpty(object);
 	}
 
