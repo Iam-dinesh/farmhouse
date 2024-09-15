@@ -1,6 +1,6 @@
 package com.dinesh.farmhouse.validator;
 
-import com.dinesh.farmhouse.domain.FarmHouse;
+import com.dinesh.farmhousecore.domain.FarmHouse;
 
 public class FarmHouseValidator {
 

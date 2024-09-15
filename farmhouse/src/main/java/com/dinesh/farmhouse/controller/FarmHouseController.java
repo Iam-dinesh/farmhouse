@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.dinesh.farmhouse.domain.FarmHouse;
-import com.dinesh.farmhouse.domain.Response;
-import com.dinesh.farmhouse.domain.StatusCode;
 import com.dinesh.farmhouse.validator.FarmHouseValidator;
+import com.dinesh.farmhousecore.domain.FarmHouse;
+import com.dinesh.farmhousecore.domain.Response;
+import com.dinesh.farmhousecore.domain.StatusCode;
 
 @Controller
 public class FarmHouseController {
