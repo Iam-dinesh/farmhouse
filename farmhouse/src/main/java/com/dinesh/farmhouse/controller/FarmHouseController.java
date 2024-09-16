@@ -24,7 +24,7 @@ public class FarmHouseController {
 		try {
 			return farmHouseService.createFarmHouse(farmhouse);
 		} catch (Exception e) {
-			return FarmHouseResponseHelper.prepareErrorResponse(null,
+			return FarmHouseResponseHelper.prepareResponse(null,
 					Arrays.asList(FarmHouseErrorMessages.FAILED_TO_CREATE_FARMHOUSE));
 		}
 	}
