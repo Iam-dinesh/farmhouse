@@ -10,7 +10,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class FarmHouseResponseHelper {
 
-	public FarmHouseServiceResponse prepareErrorResponse(Object responseData, List<String> errorMessages) {
+	public FarmHouseServiceResponse prepareResponse(Object responseData, List<String> errorMessages) {
 		FarmHouseServiceResponse farmHouseServiceResponse = new FarmHouseServiceResponse();
 		farmHouseServiceResponse.setData(responseData);
 		farmHouseServiceResponse
